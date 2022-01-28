@@ -4,7 +4,7 @@
                 <h4> Categorias: </h4>
                   <h6 v-bind:categories="categories">  </h6>
                    <div v-for="c in categories" :key="c.id" class="p-2">
-                      <h6 class="categories" v-on:click="getDatatocategories(c.id)">  {{ c.name }} </h6>
+                      <h6 class="categories" v-on:click="getDatatocategories(c.id,c.name)">  {{ c.name }} </h6>
                    </div>
           </div>
 </template>
@@ -24,9 +24,9 @@ export default {
         api.getDataCategorieSelected().then(categoriesselected => (this.categorieselected = categoriesselected));
     },
     methods:{
-        getDatatocategories:function(id){
+        getDatatocategories:function(id,name){
              
-                    this.$emit('getDatatocategories',id);
+                    this.$emit('getDatatocategories',id,name);
                 
                     
         }
